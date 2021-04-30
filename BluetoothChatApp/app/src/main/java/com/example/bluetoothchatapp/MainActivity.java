@@ -54,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         }
         //Checking if bluetooth is not discoverable
         if(bluetoothAdapter.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
-
+            Intent discoveryIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+            discoveryIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 30);
+            startActivity(discoveryIntent);
         }
     }
     @Override
